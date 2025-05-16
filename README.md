@@ -59,17 +59,6 @@ This project demonstrates how to build a secure, scalable, and isolated cloud-ba
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/3e420cf4-bda5-47c4-b096-f9b49292927b" />
 
-
-
-------------------------------------------------------------------------------
-
-## EC2 Instances
-
-- Launched two EC2 instances:
-  - **publicEC2**: Placed in `publicSubnet`, accessible via SSH.
-  - **privateEC2**: Placed in `privateSubnet`, not directly reachable from the internet.
-
-
 ------------------------------------------------------------------------------
 
 ## NAT Gateway Setup
@@ -131,13 +120,21 @@ After rebooting the instance, 'df -h' again showed /data mounted correctly, conf
 
 ------------------------------------------------------------------------------
 
+## EC2 Instances
+
+- Launched two EC2 instances:
+  - **publicEC2**: Placed in `publicSubnet`, accessible via SSH.
+  - **privateEC2**: Placed in `privateSubnet`, not directly reachable from the internet.
+
+------------------------------------------------------------------------------
+
 # Load Balancer Configuration for High Availability
 
-Create a Load balancer
+### Create a Load balancer
 1.	Select all the availability zones in which our instances are present.
 2.	Select same security group.  	
 
-Step 1: Create the Load Balancer
+### Step 1: Create the Load Balancer
 1.	Navigate to the EC2 dashboard and select Load Balancers.
 2.	Click “Create Load Balancer” and choose Application Load Balancer.
 3.	Assign a name and select the VPC where your instances reside.
@@ -147,7 +144,7 @@ Step 1: Create the Load Balancer
 
 <img width="373" alt="image" src="https://github.com/user-attachments/assets/646bf085-7861-4187-8a51-81b91b93da4d" />
 
-Step 2: Configure the Target Group
+### Step 2: Configure the Target Group
 1.	Create a Target Group and select Instances as the target type.
 2.	Choose the protocol (e.g., HTTP) and port used by your application (e.g., 80).
 3.	Select the EC2 instances that serve the frontend of your application.
